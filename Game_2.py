@@ -1,7 +1,7 @@
 
 # Pyhton Text RPG
 
-import pygame
+
 import cmd
 import textwrap
 import sys
@@ -191,7 +191,7 @@ znonename = {
 def print_location ():
     print("\n" + ("#" * (4 + len(myPlayer.location))))
     print("# " + myPlayer.location.upper() + " #")
-    print("# " + zonemap [my.Player.position][DESCRIPTION] + " #")
+    print("# " + znonename[myPlayer.position][DESCRIPTION] + " #")
     print("\n" + ("#" * (4 + len(myPlayer.location))))    
 
 def prompt():
@@ -213,16 +213,16 @@ def player_move(myAction):
     ask = "Where would you like to move to?\n"
     dest = input(ask)
     if dest in ["up", "north"]:
-        destination = zonemap[myPlayer.location][UP]
+        destination = znonename[myPlayer.location][UP]
         movmenet_handler(destination)
     elif dest in ["left", "west"]:
-        destination = zonemap[myPlayer.location][LEFT]
+        destination = znonename[myPlayer.location][LEFT]
         movmenet_handler(destination)
     elif  dest in ["east", "right"]:
-        destination = zonemap[myPlayer.location][RIGHT]
+        destination = znonename[myPlayer.location][RIGHT]
         movmenet_handler(destination)
     elif dest in ["south", "down"]:
-        destination = zonemap[myPlayer.location][DOWN]
+        destination = znonename[myPlayer.location][DOWN]
         movmenet_handler(destination)
 
 
@@ -232,7 +232,7 @@ def movmenet_handler(destination):
     print_location()
 
 def player_examine(action):
-    if zonemap[myPlayer.location][SOLVED]:
+    if znonename[myPlayer.location][SOLVED]:
         print("You have exhausted this zone.")
     else:
         print("You can trigger puzzle here!")
