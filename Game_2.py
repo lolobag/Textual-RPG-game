@@ -65,11 +65,6 @@ def help_menu():
     print("- Good luck and have fun")
     title_screen_selection()
 
-#### Game functionality ####
-def setup_game():
-    return
-
-
 
 #### MAP ####
 """
