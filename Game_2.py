@@ -1,5 +1,5 @@
 
-# Pyhton Text RPG
+# Python Text RPG
 
 
 import cmd
@@ -26,10 +26,11 @@ class player:
 myPlayer = player()
 
 #### Title Screen ####
-def title_screen_selection():
+
+def title_screen_selections():
     option = input("> ")
     if option.lower() == ("play"):
-        setup_game() # placeholder until written #
+        setup_game()
     elif option.lower() == ("help"):
         help_menu()
     elif option.lower() == ("quit"):
@@ -38,7 +39,7 @@ def title_screen_selection():
         print("Please enter a valid command.")
         option = input("> ")
         if option.lower() == ("play"):
-            setup_game() # placeholder until written
+            setup_game() 
         elif option.lower() == ("help"):
             help_menu()
         elif option.lower() == ("quit"):
@@ -53,7 +54,7 @@ def title_screen():
     print("- Help -                    ")
     print("- Quit-                     ")
     print(" Copyright 2019 lolobag.lol ")
-    title_screen_selection()
+    title_screen_selections()
 
 def help_menu():
     print("############################")
@@ -63,7 +64,8 @@ def help_menu():
     print("- Type your commands to do them")
     print("- Use ""look"" to inspect something")
     print("- Good luck and have fun")
-    title_screen_selection()
+    title_screen_selections()
+
 
 
 #### MAP ####
@@ -97,7 +99,7 @@ solved_places = {"a1": False, "a2": False, "a3": False, "a4": False,
                 "d1": False, "d2": False, "d3": False, "d4": False,
                 }
 
-znonename = {
+zonename = {
         "a1":{
             ZONENAME: "Town Market",
             DESCRIPTION: "This is market with stores!",
@@ -186,7 +188,7 @@ znonename = {
 def print_location ():
     print("\n" + ("#" * (4 + len(myPlayer.location))))
     print("# " + myPlayer.location.upper() + " #")
-    print("# " + znonename[myPlayer.position][DESCRIPTION] + " #")
+    print("# " + zonename[myPlayer.position][DESCRIPTION] + " #")
     print("\n" + ("#" * (4 + len(myPlayer.location))))    
 
 def prompt():
@@ -208,26 +210,26 @@ def player_move(myAction):
     ask = "Where would you like to move to?\n"
     dest = input(ask)
     if dest in ["up", "north"]:
-        destination = znonename[myPlayer.location][UP]
-        movmenet_handler(destination)
+        destination = zonename[myPlayer.location][UP]
+        movement_handler(destination)
     elif dest in ["left", "west"]:
-        destination = znonename[myPlayer.location][LEFT]
-        movmenet_handler(destination)
+        destination = zonename[myPlayer.location][LEFT]
+        movement_handler(destination)
     elif  dest in ["east", "right"]:
-        destination = znonename[myPlayer.location][RIGHT]
-        movmenet_handler(destination)
+        destination = zonename[myPlayer.location][RIGHT]
+        movement_handler(destination)
     elif dest in ["south", "down"]:
-        destination = znonename[myPlayer.location][DOWN]
-        movmenet_handler(destination)
+        destination = zonename[myPlayer.location][DOWN]
+        movement_handler(destination)
 
 
-def movmenet_handler(destination):
+def movement_handler(destination):
     print("\n" + "You have move to the " + destination + ".")
     myPlayer.location = destination
     print_location()
 
 def player_examine(action):
-    if znonename[myPlayer.location][SOLVED]:
+    if zonename[myPlayer.location][SOLVED]:
         print("You have exhausted this zone.")
     else:
         print("You can trigger puzzle here!")
@@ -239,13 +241,13 @@ def player_examine(action):
 def main_game_loop():
     while myPlayer.game_over is False:
         prompt()
-        # Here handel if puzlle has been solved, boos defeted, expolres evrithing, ect...
+        # Here handel if puzzle has been solved, boos defeated, explores evreything, ect...
 
 
 def setup_game():
     os.system('clear')
 
-    ### Name colecting
+    ### Name collecting
     qustion1 = "What is your name?\n"
     for character in qustion1:
         sys.stdout.write(character)
@@ -277,13 +279,13 @@ def setup_game():
        
 
     #### PLAYER STATUS
-    if myPlayer.job is "worior":
+    if myPlayer.job is 'warrior':
         self.hp = 120
         self.mp = 20
-    elif myPlayer.job is "mage":
+    elif myPlayer.job is 'mage':
         self.hp = 40
         self.mp = 120
-    elif myPlayer.job is "priest":
+    elif myPlayer.job is 'priest':
         self.hp = 60
         self.mp = 60
 
@@ -300,8 +302,8 @@ def setup_game():
         time.sleep(0.05)
    
     speech1 = "Welcome to this fantasy world!\n"
-    speech2 = "I hope it greatse you well!\n"
-    speech3 = "Yust make shure you dont get lost...\n"
+    speech2 = "I hope it greats you well!\n"
+    speech3 = "Just make sure you dont get lost...\n"
     speech4 = "Muahahahaha...\n"
     for character in speech1:
             sys.stdout.write(character)
