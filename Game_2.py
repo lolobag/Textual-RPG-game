@@ -123,7 +123,7 @@ zonename = {
          "a3":{
             ZONENAME: "Town Square.",
             DESCRIPTION: "There is a round fountain, and lots of people!",
-            EXAMINATION: "See the fountan, and talk to the people.",
+            EXAMINATION: "See the fountain, and talk to the people.",
             SOLVED: False,
             UP: "",
             DOWN: "b3",
@@ -162,8 +162,8 @@ zonename = {
         },
          "b3":{
             ZONENAME: "Residences",
-            DESCRIPTION: "Hoses where people live!",
-            EXAMINATION: "Nothing to examine it is rude to look in other peoples hoses.",
+            DESCRIPTION: "Houses where people live!",
+            EXAMINATION: "Nothing to examine it is rude to look in other peoples houses.",
             SOLVED: False,
             UP: "a4",
             DOWN: "c3",
@@ -336,6 +336,3 @@ def setup_game():
     main_game_loop()
 
 title_screen()
-
-
-
